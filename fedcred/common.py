@@ -50,7 +50,7 @@ def read_config():
 
 def get_user_credentials(prompt=None):
     if prompt is None:
-        prompt_msg = 'Enter you username: '
+        prompt_msg = 'Enter your username: '
     try:
         username = raw_input(prompt_msg).strip()
     except NameError:
@@ -116,7 +116,7 @@ def get_arns_from_assertion(assertion):
     role_choice = int(role_choice)
     if role_choice > (len(parsed_roles) - 1):
         sys.exit('Sorry, that is not a valid role choice.')
-    print('Success. You have obtained crentials for the assumed role of: %s' % (
+    print('Success. You have obtained credentials for the assumed role of: %s' % (
         parsed_roles[role_choice]['RoleArn'],))
     return parsed_roles[role_choice]
 
@@ -167,4 +167,4 @@ def write_credentials(profile, creds):
 
     with open(aws_creds_path, 'w') as configfile:
         config.write(configfile)
-    print('Crentials successfully written to %s' % (aws_creds_path,))
+    print('Credentials successfully written to %s' % (aws_creds_path,))
